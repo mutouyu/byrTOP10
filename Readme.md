@@ -1,10 +1,14 @@
+#介绍
+byrTOP10介绍 byrTOP10是一个Java Servlet 和 python Scrapy(0.24) 结合的一个微信公众帐号开发应用。功能是实现对北邮人论坛每日10大帖子的爬取后存入mysql数据库供微信公众号的检索。如输入20150831则会返回2015年8月31号的当日十大帖子。由于开发不久，数据库里的数据不多，记录日期重20150831开始，后续的数据库信息由scrapy和crontab每日定时6点30分开始爬去当日十大。
 
 
 ![](http://i.imgur.com/nZNgLgf.png)
 
 ![](http://i.imgur.com/rDJHDlT.jpg)
 
+##mysql数据库配置
 修改mysql数据库配置
+
 ```
 nano /etc/mysql/my.cnf 
 #bind-address 127.0.0.1 
@@ -34,9 +38,9 @@ cd dataScrapy
 scrapy crawl t2
 ```
 
-#修改dataScrapy项目
+##修改dataScrapy项目
 修改sp2.py 中的数据库用户名和密码
-#修改myJavaWeb项目
+##修改myJavaWeb项目
 修改jdbcUtils.java 中的数据库用户名和密码
 修改SignUtil.java 中的token
 
