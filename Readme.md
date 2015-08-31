@@ -66,3 +66,29 @@ cd myJavaWeb
 #运行tomcat7
 mvn tomcat7:deploy
 ```
+
+#增加爬虫定时任务 crontab
+
+>由于是美国的VPS，所以改下时区
+
+```
+sudo dpkg-reconfigure tzdata #选取Asia Shanghai就可以了
+```
+
+```
+nano Top10.sh
+
+#!/bin/bash
+export PATH="/usr/local/bin:/usr/bin:/bin"
+cd `dirname $0`
+exec "$@"
+
+
+```
+
+```
+crontab -e 
+```
+```
+30 6 * * * /root/tomcat/dataScrapy/Top10.sh  scrapy crawl t2   #每天6点30分去爬论坛数据
+```
